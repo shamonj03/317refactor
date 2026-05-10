@@ -121,6 +121,7 @@ public final class Client extends RSApplet {
             }
             signlink.storeid = Integer.parseInt(args[4]);
             signlink.startpriv(InetAddress.getLocalHost());
+            new Thread(new com.jagex.runescape.audio.SoundPlayer()).start();
             final Client client1 = new Client();
             client1.createClientFrame(765, 503);
         } catch (final Exception exception) {

@@ -197,6 +197,7 @@ public final class signlink implements Runnable {
     private static boolean midiplay;
     private static int midipos;
     public static String midi = null;
+    public static String wave = null;
     public static int midiVolume;
     public static int midiFade;
     private static boolean waveplay;
@@ -226,7 +227,7 @@ public final class signlink implements Runnable {
         } catch (final Exception exception) {
             exception.printStackTrace();
         }
-        for (final int i = threadliveid; threadliveid == i; ) {
+        for (int i = threadliveid; threadliveid == i; ) {
             if (socketreq != 0) {
                 try {
                     socket = new Socket(socketip, socketreq);
@@ -257,6 +258,7 @@ public final class signlink implements Runnable {
                     }
                 }
                 if (waveplay) {
+                    wave = s + savereq;
                     waveplay = false;
                 }
 
